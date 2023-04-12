@@ -1,24 +1,25 @@
-var titulo = document.querySelector(".titulo");
-titulo.textContent = "Aparecida Nutricionista";
+        var titulo = document.querySelector(".titulo");
+        titulo.textContent = "Aparecida Nutricionista";
 
-var pacientes = document.querySelectorAll(".paciente");
+        var pacientes = document.querySelectorAll(".paciente");
 
 
-for (var i = 0; i < pacientes.length ; i++) {
+        for (var i = 0; i < pacientes.length ; i++) {
 
-    var paciente = pacientes[i];
-   
-    var tdPeso = paciente.querySelector(".info-peso")
-    var peso = tdPeso.textContent;
+            var paciente = pacientes[i];
+        
+            var tdPeso = paciente.querySelector(".info-peso")
+            var peso = tdPeso.textContent;
 
-    var tdAltura = paciente.querySelector(".info-altura");
-    var altura = tdAltura.textContent;
- 
-    var tdImc = paciente.querySelector(".info-imc");
+            var tdAltura = paciente.querySelector(".info-altura");
+            var altura = tdAltura.textContent;
+        
+            var tdImc = paciente.querySelector(".info-imc");
 
-    var alturaEhValida = validaAltura(altura);
-    var pesoEhValido = validaPeso(peso);
-    
+            var pesoEhValido = validaPeso(peso);
+            var alturaEhValida = validaAltura(altura);
+            
+            
 
         if(!pesoEhValido) {
         console.log("Peso inválido!")
@@ -47,35 +48,34 @@ for (var i = 0; i < pacientes.length ; i++) {
 }
 
     function validaPeso(peso){
-        if (peso >= 0 && peso <1000) {
-        return true; 
-    }else {
-        return false;
+            if (peso >= 0 && peso <1000) {
+            return true; 
+        }else {
+            return false;
     
     }
 }
 
 function validaAltura(altura) {
-    if(altura >= 0 && altura <= 3.0){
-        return true;
-   }else {
-    return false;
-   }
+        if(altura >= 0 && altura <= 3.0){
+            return true;
+    }  else {
+        return false;
+    }
 
 }
 
     function calculaImc(peso,altura){
-        var imc = 0; 
+            var imc = 0; 
 
-        imc = peso / (altura * altura); 
+            imc = peso / (altura * altura); 
 
-        return imc.toFixed(2);
+            return imc.toFixed(2);
 
-}
+    }
 
-/*
+
         titulo.addEventListener("click", function() {
             console.log("Olá eu fui clicado agora com função anonima!")
         });
 
-*/
