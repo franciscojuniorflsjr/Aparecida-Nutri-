@@ -6,11 +6,7 @@
         event.preventDefault();
 
         var form = document.querySelector("#form-adiciona");
-        // Extraindo informoes do paciente do form
         var paciente = obtemPacienteDoFormulario(form);
-
-        // cria a tr e td do paciente
-        var pacienteTr = montaTr(paciente);
 
         var erros = validaPaciente(paciente);
         console.log(erros);           
@@ -18,23 +14,20 @@
         exibeMensagensDeErro(erros);
         return;
 };
+       
+        adicionaPacienteNaTabela(paciente);
 
-        var tabela = document.querySelector("#tabela-pacientes");
-        tabela.appendChild(pacienteTr);
-        form.reset();
-
-     
-// adicionando o paciente na tabela.
-        var tabela = document.querySelector
-        ("#tabela-pacientes");
-
-        tabela.appendChild(pacienteTr);
-
-        form.reset(); // limpar o formulario apos enviar
-        var mensagensErro = document.querySelector
-        ("#mensagens-erro");
+        form.reset(); 
+        var mensagensErro = document.querySelector("#mensagens-erro");
         mensagensErro.innerHTML= "";
  });
+
+function adicionaPacienteNaTabela(paciente){
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
+}
 
  function exibeMensagensDeErro(erros) {
         var ul = document.querySelector("#mensagens-erro"); 
